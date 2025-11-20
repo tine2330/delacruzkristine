@@ -109,6 +109,11 @@ export default function App() {
     } else alert("Error adding task: " + error.message);
   }
 
+
+
+
+
+
   // ----------------- DELETE TASK -----------------
   async function deleteTask(id: number) {
     const { error } = await supabase.from("task").delete().eq("id", id);
