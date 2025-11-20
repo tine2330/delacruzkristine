@@ -33,7 +33,6 @@ export default function App() {
   }, [session]);
 
   // ----------------- CRUD FUNCTIONS -----------------
-
   async function fetchTasks() {
     const { data, error } = await supabase
       .from("task")
@@ -67,8 +66,11 @@ export default function App() {
   // ----------------- FILE UPLOAD -----------------
   async function uploadFile(file: File | null, folder: string) {
     if (!file) return null;
+
     const fileName = `${folder}/${Date.now()}-${file.name}`;
-    const { data, error } = await supabase.storage
+
+    // Upload the file
+    const { error } = await supabase.storage
       .from("task-files")
       .upload(fileName, file, { upsert: true });
 
@@ -77,10 +79,15 @@ export default function App() {
       return null;
     }
 
-    const { data: urlData } = supabase.storage
-      .from("task-files")
-      .getPublicUrl(fileName);
-    return urlData.publicUrl;
+    // Get public URL safely
+    const { data } = supabase.storage.from("task-files").getPublicUrl(fileName);
+
+    if (!data?.publicUrl) {
+      alert("Error getting public URL");
+      return null;
+    }
+
+    return data.publicUrl;
   }
 
   // ----------------- ADD TASK -----------------
@@ -108,11 +115,6 @@ export default function App() {
       fetchTasks();
     } else alert("Error adding task: " + error.message);
   }
-
-
-
-
-
 
   // ----------------- DELETE TASK -----------------
   async function deleteTask(id: number) {
