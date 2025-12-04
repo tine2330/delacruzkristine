@@ -1,0 +1,149 @@
+body {
+  background-color: #121212;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0;
+  border: none;
+  border-radius: 5px;
+  background-color: #1e1e1e;
+  color: #fff;
+  outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #888;
+}
+
+/* Buttons */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+/* Auth container */
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+}
+
+.auth-container button {
+  background-color: #16a34a;
+  color: white;
+}
+
+.auth-container button:hover {
+  background-color: #15803d;
+}
+
+.switch-link {
+  text-align: center;
+  color: #aaa;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.switch-link:hover {
+  color: #fff;
+}
+
+/* Main container */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.logout-btn {
+  background-color: #dc2626;
+  color: white;
+  padding: 6px 10px;
+}
+
+.logout-btn:hover {
+  background-color: #b91c1c;
+}
+
+.add-btn {
+  background-color: #2563eb;
+  color: white;
+  width: 100%;
+  padding: 10px;
+}
+
+.add-btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* Task card */
+.task-card {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 12px;
+  width: 100%;
+}
+
+.task-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.task-desc {
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 10px;
+}
+
+.task-date {
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 8px;
+}
+
+.task-btns {
+  display: flex;
+  gap: 8px;
+}
+
+.task-btns .edit-btn {
+  background-color: #eab308;
+  color: black;
+}
+
+.task-btns .edit-btn:hover {
+  background-color: #facc15;
+}
+
+.task-btns .delete-btn {
+  background-color: #ef4444;
+  color: white;
+}
+
+.task-btns .delete-btn:hover {
+  background-color: #dc2626;
+}
